@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+        integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+        crossorigin='anonymous'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="pwdBox" id="pwdBox">
+        <p>請輸入使用密碼</p>
+        <label>
+            <input type="text" id="pwdIpt" placeholder="請輸入密碼">
+            <button id="pwdBtn">輸入</button>
+        </label>
+        
+    </div>
+    <div class="gameBox">
+        <!-- ===== showBox start ===== -->
+        <div class="showBox" id="showBox">
+            <img src="img/bodyBg.png">
+            <!-- 上方按鈕 -->
+            <div class="showBtn showBtn_01 on">收購道具</div>
+            <div class="showBtn showBtn_02 ">販售道具</div>
+
+            <!-- 遊戲ID和訊息 -->
+            <div class="showName" id="showName">輸入遊戲ID</div>
+            <textarea class="showMsg" id="showMsg" disabled>輸入訊息</textarea>
+
+            <!-- 清單 -->
+            <div class="showlist">
+                <ul id="list">
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== minBtnBox  start ===== -->
+        <div class="minBtnBox" id="minBtnBox">
+            <ul>
+                <li>
+                    <span>編輯ID</span>
+                    <img src="img/mainSort_btn.png">
+                </li>
+                <li>
+                    <span>編輯訊息</span>
+                    <img src="img/mainSort_btn.png">
+                </li>
+                <li>
+                    <span>增加清單</span>
+                    <img src="img/mainSort_btn.png">
+                </li>
+            </ul>
+        </div>
+
+        <!-- ===== iptBox  start ===== -->
+        <div class="iptBox">
+            <div class="iptColse" id="iptColse"></div>
+            <div class="textBox">
+                <input type="text" class="iptName" id="iptName" maxlength="11" placeholder="輸入遊戲ID，最多輸入11個字">
+                <textarea id="iptText" class="iptText" placeholder="編輯訊息"></textarea>
+                <button id="btn"><span>填入資料</span></button>
+            </div>
+
+            <div class="selBox">
+                <div>
+                    <select id="sort" >
+                        <option value="0">-- 物品分類 --</option>
+                        <option value="1">農作物</option>
+                        <option value="2">飲料</option>
+                        <option value="3">基肥</option>
+                        <option value="4">肥料</option>
+                        <option value="5">床土</option>
+                        <option value="6">堆肥</option>
+                        <option value="7">酵素</option>
+                        <option value="8">農業用土壤</option>
+                        <option value="9">魚餌</option>
+                        <option value="10">飲料製作材料</option>
+                        <option value="11">肥料製作材料</option>
+                        <option value="12">裝備製作材料</option>
+                        <option value="13">農具製作材料</option>
+                    </select>
+
+                    <select id="sel" class="sel" data-sort="0">
+                        <option value="0">-- 物品名稱 --</option>
+                        <!-- 農作物 -->
+                        <option value="1" data-sort="1">珠寶瓜</option>
+                        <option value="2" data-sort="1">金瓜</option>
+                        <option value="3" data-sort="1">銀瓜</option>
+                        <option value="4" data-sort="1">銅瓜</option>
+                        <option value="5" data-sort="1">花椰菜</option>
+                        <option value="6" data-sort="1">萊阿里覆盆莓</option>
+                        <option value="7" data-sort="1">萊阿里藍莓</option>
+                        <option value="8" data-sort="1">萊阿里草莓</option>
+                        <option value="9" data-sort="1">萊阿里蔓越莓</option>
+                        <!-- 飲料 -->     
+                        <option value="10"  data-sort="2">胡蘿蔔汁(50水)</option>
+                        <option value="11"  data-sort="2">濃郁的胡蘿蔔汁(100水)</option>
+                        <option value="12"  data-sort="2">少量的疲勞恢復劑(150水)</option>
+                        <option value="13"  data-sort="2">有效的疲勞恢復劑(300水)</option>
+                        <option value="14"  data-sort="2">強力的疲勞恢復劑(600水)</option>
+                        <option value="15"  data-sort="2">超強力疲勞恢復劑(1200水)</option>
+                        <!-- 基肥 -->
+                        <option value="16" data-sort="3">下級基肥</option>
+                        <option value="17" data-sort="3">中級基肥</option>
+                        <option value="18" data-sort="3">上級基肥</option>
+                        <option value="19" data-sort="3">特級基肥</option>
+                        <!-- 肥料 -->
+                        <option value="20" data-sort="4">下級肥料</option>
+                        <option value="21" data-sort="4">中級肥料</option>
+                        <option value="22" data-sort="4">上級肥料</option>
+                        <option value="23" data-sort="4">特級肥料</option>
+                        <option value="24" data-sort="4">液肥</option>
+                        <!-- 床土 -->
+                        <option value="25" data-sort="5">下級床土</option>
+                        <option value="26" data-sort="5">中級床土</option>
+                        <option value="27" data-sort="5">上級床土</option>
+                        <option value="28" data-sort="5">特級床土</option>
+                        <!-- 堆肥 -->
+                        <option value="29" data-sort="6">雜亂的堆肥</option>
+                        <option value="30" data-sort="6">一般的堆肥</option>
+                        <option value="31" data-sort="6">不錯用的堆肥</option>
+                        <option value="32" data-sort="6">優良的的堆肥</option>
+                        <!-- 酵素 -->
+                        <option value="33" data-sort="7">酵素</option>
+                        <option value="34" data-sort="7">精煉酵素</option>
+                        <!-- 農業用土壤 -->
+                        <option value="35" data-sort="8">牛糞</option>
+                        <option value="36" data-sort="8">農業用土壤</option>
+                        <!-- 魚餌 -->
+                        <option value="37" data-sort="9">蝸牛魚餌</option>
+                        <option value="38" data-sort="9">特級蝦子魚餌</option>
+                        <!-- 飲料製作材料 -->
+                        <option value="39" data-sort="10">甲殼素</option>
+                        <option value="40" data-sort="10">濃縮甲殼素</option>
+                        <option value="41" data-sort="10">牛磺酸</option>
+                        <option value="42" data-sort="10">濃縮牛磺酸</option>
+                        <!-- 肥料製作材料 -->
+                        <option value="43" data-sort="11">礦物質</option>
+                        <option value="44" data-sort="11">濃縮礦物質</option>
+                        <option value="45" data-sort="11">胺基酸</option>
+                        <option value="46" data-sort="11">濃縮胺基酸</option>
+                        <!-- 裝備製作材料 -->
+                        <option value="47" data-sort="12">布料</option>
+                        <option value="48" data-sort="12">高級布料</option>
+                        <option value="49" data-sort="12">毛線球</option>
+                        <option value="50" data-sort="12">皮革</option>
+                        <option value="51" data-sort="12">橡膠</option>
+                        <!-- 農具製作材料 -->
+                        <option value="52" data-sort="13">鐵</option>
+                        <option value="53" data-sort="13">高級鐵塊</option>
+                        <option value="54" data-sort="13">耙子</option>
+                        <option value="55" data-sort="13">鏟頭</option>
+                        <option value="56" data-sort="13">小鏟頭</option>
+                        <option value="57" data-sort="13">塑膠</option>
+                        <option value="58" data-sort="13">鐮刀刀刃</option>
+                        <option value="59" data-sort="13">樹枝</option>
+
+                    </select>
+
+                    <input type="text" name="" id="selIpt" placeholder="收購價格">
+                </div>
+
+
+                <button id="btn2"><span>增加清單</span></button>
+            </div>
+        </div>
+   
+    </div>
+
+
+
+    <script src="script/index.js"></script>
+</body>
+
+</html>
