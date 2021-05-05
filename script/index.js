@@ -209,12 +209,12 @@ $('#sort').change(function(){
 })
 
 
-$('#pwdBtn').click(function(){
-    var pwd = $('#pwdIpt').val();
-    if(pwd == '使用密碼'){
-        $('#pwdBox').addClass('on')
-    }
-})
+// $('#pwdBtn').click(function(){
+//     var pwd = $('#pwdIpt').val();
+//     if(pwd == '使用密碼'){
+//         $('#pwdBox').addClass('on')
+//     }
+// })
 
 
 // ===== 函式區塊 =====
