@@ -6,7 +6,7 @@ img{
     vertical-align: middle;
 }
 
-textarea{
+/* textarea{
     width: 242px;
     height: 300px;
     padding: 10px;
@@ -14,12 +14,11 @@ textarea{
     overflow: hidden;
     font-size: 18px;
     outline: none;
-}
+} */
 
 .pwdBox{
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 999;
     display: flex;
@@ -27,42 +26,80 @@ textarea{
     align-items: center;
     justify-content: center;
     color: #fff;
+    background-color: rgba(99, 99, 99, 0.7);
+}
+
+.pwdBox::before{
+    content: '';
+    margin: auto;
+    width: 98vw;
+    height: 98vw;
+    max-width: 400px;
+    max-height: 400px;
+    background: url(../img/bg02.png) no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 0.6;
 }
 
 .pwdBox.on{
     display: none;
 }
 
-.pwdBox p{
-    font-size: 20px;
-    letter-spacing: 5px;
-    padding-bottom: 10px;
+.pwdCnt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pwdCnt .pwdMan{
+    width: 150px;
+    position: absolute;
+    left: -53px;
+    z-index: 2;
 }
 
 .pwdBox label{
     display: flex;
-    border-radius: 20px;
-    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.pwdBox p{
+    font-size: 20px;
+    letter-spacing: 5px;
+    padding-bottom: 10px;
+    transform: translateX(30px);
 }
 
 .pwdBox input{
-    width: 220px;
+    width: 100%;
     height: 40px;
     font-size: 18px;
-    padding-left: 20px;
-    padding-right: 10px;
-    border-radius: 20px 0 0 20px;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 5px;
 }
 
 .pwdBox button{
-    width: 60px;
+    padding: 0 8px;
+    margin-left: 2px;
     border-radius: 2px;
     border: none;
-    background-color: rgb(10, 92, 168);
+    background-color:#83b839;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 4px;
+    flex-shrink: 0;
 }
 
 
@@ -146,7 +183,7 @@ textarea{
     font-size: 25px;
     position: absolute;
     top: 17px;
-    left: 150px;
+    left: 149px;
     color: #fff;
     opacity: 0.6;
     font-weight: bold;
@@ -154,9 +191,11 @@ textarea{
 }
 
 .showMsg{
+    width: 240px;
+    height: 300px;
     position: absolute;
-    top: 119px;
-    left: 28px;
+    top: 122px;
+    left: 37px;
     color: rgb(131, 18, 18); 
     background: transparent;
     border: none;  
@@ -177,7 +216,6 @@ textarea{
     padding: 5px 10px;
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .showlist li{
@@ -409,6 +447,15 @@ textarea{
     background-image: url(../img/gl08.png);
 } 
 
+/* 飾品製作材料 */
+.showlist li>div[data-num="60"] .listImg{
+    background-image: url(../img/gs01.png);
+} 
+.showlist li>div[data-num="61"] .listImg{
+    background-image: url(../img/gs02.png);
+} 
+
+
 .showlist .listTitle{  
     width: 100%;
     height: 50px;
@@ -512,6 +559,11 @@ textarea{
     background-image: url(../img/event-label01.svg);
 }  
 
+.showlist li>div[data-num="60"] .listName,
+.showlist li>div[data-num="61"] .listName{
+    background-image: url(../img/event-label02.svg);
+}  
+
 
 .showlist .listTitle p{
     max-width: 135px;
@@ -580,7 +632,7 @@ textarea{
     content: '';
     width: 0%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(17, 20, 172);
     transform: skew(40deg) translateX(-20px);
     position: absolute;
     top: 0;
@@ -614,11 +666,33 @@ textarea{
 }
 
 .iptText{
+   width: 242px;
+   background-color: #fff;
    margin-bottom: 5px;
    border: none;
+   overflow: hidden;
 }
 
+#editor{
+   width: 243px;
+   height: 260px;
+   padding-left: 20px;
+   padding-right: 20px;
+}
 
+.ql-editor li,
+#editor li{
+    padding-left: 0 !important;
+}
+
+.ql-editor::-webkit-scrollbar{
+    width: 0 !important;
+    background-color: #0000;
+}
+
+.ql-editor *{
+    background-color: transparent !important;
+}
 
 .selBox>div{
     width: 242px;
@@ -684,6 +758,9 @@ textarea{
     display: block;
 }
 .sel[data-sort="13"] option[data-sort="13"]{
+    display: block;
+}
+.sel[data-sort="14"] option[data-sort="14"]{
     display: block;
 }
 
@@ -815,7 +892,7 @@ textarea{
     .selBox,
     .textBox,
     .textBox input,
-    .textBox textarea{
+    .textBox .iptText{
         display: none;
     }
 
@@ -824,7 +901,7 @@ textarea{
     }
 
     .textBox input.on,
-    .textBox textarea.on{
+    .textBox .iptText.on{
         display: block;
     }
     .selBox.on{

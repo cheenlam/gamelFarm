@@ -5,23 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/gif" href="img/bg02.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
         integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
         crossorigin='anonymous'></script>
-    <title>Document</title>
+        
+    <title>瘋種菜買賣編輯</title>
 </head>
 
 <body>
-<!--     <div class="pwdBox" id="pwdBox">
-        <p>請輸入使用密碼</p>
-        <label>
-            <input type="text" id="pwdIpt" placeholder="請輸入密碼">
-            <button id="pwdBtn">輸入</button>
-        </label>     
-    </div> -->
-    
     <div class="gameBox">
         <!-- ===== showBox start ===== -->
         <div class="showBox" id="showBox">
@@ -32,8 +27,8 @@
 
             <!-- 遊戲ID和訊息 -->
             <div class="showName" id="showName">輸入遊戲ID</div>
-            <textarea class="showMsg" id="showMsg" disabled>輸入訊息</textarea>
-
+            <div class="showMsg" id="showMsg" disabled ></div>
+            <!-- <textarea class="showMsg" id="showMsg" disabled>輸入訊息</textarea> -->
             <!-- 清單 -->
             <div class="showlist">
                 <ul id="list">
@@ -64,13 +59,16 @@
             <div class="iptColse" id="iptColse"></div>
             <div class="textBox">
                 <input type="text" class="iptName" id="iptName" maxlength="11" placeholder="輸入遊戲ID，最多輸入11個字">
-                <textarea id="iptText" class="iptText" placeholder="編輯訊息"></textarea>
+                <div class="iptText">
+                    <div id="editor" class="editor"></div>
+                </div>
+                <!-- <textarea id="iptText" class="iptText" placeholder="編輯訊息"></textarea> -->
                 <button id="btn"><span>填入資料</span></button>
             </div>
 
             <div class="selBox">
                 <div>
-                    <select id="sort" >
+                    <select id="sort">
                         <option value="0">-- 物品分類 --</option>
                         <option value="1">農作物</option>
                         <option value="2">飲料</option>
@@ -85,6 +83,7 @@
                         <option value="11">肥料製作材料</option>
                         <option value="12">裝備製作材料</option>
                         <option value="13">農具製作材料</option>
+                        <option value="14">飾品製作材料</option>
                     </select>
 
                     <select id="sel" class="sel" data-sort="0">
@@ -99,13 +98,13 @@
                         <option value="7" data-sort="1">萊阿里藍莓</option>
                         <option value="8" data-sort="1">萊阿里草莓</option>
                         <option value="9" data-sort="1">萊阿里蔓越莓</option>
-                        <!-- 飲料 -->     
-                        <option value="10"  data-sort="2">胡蘿蔔汁(50水)</option>
-                        <option value="11"  data-sort="2">濃郁的胡蘿蔔汁(100水)</option>
-                        <option value="12"  data-sort="2">少量的疲勞恢復劑(150水)</option>
-                        <option value="13"  data-sort="2">有效的疲勞恢復劑(300水)</option>
-                        <option value="14"  data-sort="2">強力的疲勞恢復劑(600水)</option>
-                        <option value="15"  data-sort="2">超強力疲勞恢復劑(1200水)</option>
+                        <!-- 飲料 -->
+                        <option value="10" data-sort="2">胡蘿蔔汁(50水)</option>
+                        <option value="11" data-sort="2">濃郁的胡蘿蔔汁(100水)</option>
+                        <option value="12" data-sort="2">少量的疲勞恢復劑(150水)</option>
+                        <option value="13" data-sort="2">有效的疲勞恢復劑(300水)</option>
+                        <option value="14" data-sort="2">強力的疲勞恢復劑(600水)</option>
+                        <option value="15" data-sort="2">超強力疲勞恢復劑(1200水)</option>
                         <!-- 基肥 -->
                         <option value="16" data-sort="3">下級基肥</option>
                         <option value="17" data-sort="3">中級基肥</option>
@@ -161,6 +160,9 @@
                         <option value="57" data-sort="13">塑膠</option>
                         <option value="58" data-sort="13">鐮刀刀刃</option>
                         <option value="59" data-sort="13">樹枝</option>
+                        <!-- 飾品製作材料 -->
+                        <option value="60" data-sort="14">人造鑽石</option>
+                        <option value="61" data-sort="14">高級鑽石</option>
 
                     </select>
 
@@ -171,12 +173,18 @@
                 <button id="btn2"><span>增加清單</span></button>
             </div>
         </div>
-   
+
     </div>
 
-
-
+    
     <script src="script/index.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+      <script>
+        var quill = new Quill('#editor', {
+          theme: 'snow'
+        });
+        $('#editor input,#editor a').remove()
+      </script>
 </body>
 
 </html>
